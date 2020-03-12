@@ -10,7 +10,7 @@ import com.Persistent.Employee.Beans.Employee;
 @Repository
 public interface EmployeeRepo extends MongoRepository<Employee,String>{
 
-//	List<Employee> findall();
+   //List<Employee> findall();
 	//Employee findbyId(String empid);
 
 }

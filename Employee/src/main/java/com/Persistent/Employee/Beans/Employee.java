@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="employee")
+@Document(collection="Employee")
 public class Employee {
 	
 	@Id
@@ -23,6 +23,13 @@ public class Employee {
 	private String Role;
 	
 	public Employee() {}
+	
+	public Employee(String empid,String Empname)
+	{
+		super();
+		this.empid=empid;
+		this.EmpName=Empname;
+	}
 	
 	public Employee(String empid, String empName, String contactno, String location, String vehicleNo, String projectBU,
 			String projectName, String role) {

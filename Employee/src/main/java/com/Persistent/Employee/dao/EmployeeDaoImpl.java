@@ -36,8 +36,9 @@ public class EmployeeDaoImpl implements IEmployee{
 	}
 
 	@Override
-	public void Insert(Employee obj) {
+	public String Insert(Employee obj) {
 		repo.insert(obj);
+		return "Updated";
 	}
 
 	@Override
