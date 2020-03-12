@@ -42,12 +42,33 @@ public class EmployeeDaoImpl implements IEmployee{
 
 	@Override
 	public void Update(Employee obj) {
-		repo.insert(obj);
+		Optional<Employee> emp=repo.findById(obj.getEmpid());
+		try {
+		if(!emp.isPresent())//if emp not found
+		{
+			throw new UserNotFoundException("Not Found User with Id"+obj.getEmpid());
+		}
+		else//if found
+		{
+			repo.insert(obj);
+		}
+	}catch(Exception e) {e.printStackTrace();}
 	}
+	
 
 	@Override
 	public void Delete(Employee obj) {
-		repo.delete(obj);
+		Optional<Employee> emp=repo.findById(obj.getEmpid());
+		try {
+			if(!emp.isPresent()) {
+				throw new UserNotFoundException("Not Found User with Id"+obj.getEmpid());
+			}
+			else
+			{
+				repo.delete(emp.get());
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		
 	}
 
 }
